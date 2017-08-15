@@ -29,6 +29,15 @@
         android:layout_below="@+id/tvQstnTwo"
         android:layout_marginTop="25dp" />
 
+    <Button
+        android:id="@+id/btnShowAnsTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display Answer"
+        android:layout_below="@+id/lvAnsTwoOptions"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp" />
+
     <!--<CheckedTextView-->
         <!--android:id="@+id/checkedTextView"-->
         <!--android:layout_width="wrap_content"-->

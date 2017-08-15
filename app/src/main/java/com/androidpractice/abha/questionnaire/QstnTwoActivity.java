@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.androidpractice.abha.questionnaire.helper.Util;
 
@@ -21,8 +25,8 @@ public class QstnTwoActivity extends AppCompatActivity {
     private Util util;
     private ListView lvAnsTwoOptions;
     String[] ansTwoOptions = {"Red", "Green", "None of the above", "Other"};
-    boolean[] checkedOptions;
-    ArrayList<Integer> userOptions = new ArrayList<>();
+    ArrayList<String> selectedOptions = new ArrayList<>();
+    private Button btnShowAnsTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +37,49 @@ public class QstnTwoActivity extends AppCompatActivity {
 
         toolbarQstnTwo = (Toolbar) findViewById(R.id.toolbarQstnTwo);
         lvAnsTwoOptions = (ListView) findViewById(R.id.lvAnsTwoOptions);
+        btnShowAnsTwo = (Button) findViewById(R.id.btnShowAnsTwo);
 
         setSupportActionBar(toolbarQstnTwo);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        checkedOptions = new boolean[ansTwoOptions.length];
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ansTwoOptions);
+        lvAnsTwoOptions.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ansTwoOptions);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.qstn_two_row_layout, ansTwoOptions);
         lvAnsTwoOptions.setAdapter(adapter);
 
+        lvAnsTwoOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedOption = ((TextView)view).getText().toString();
+                if(selectedOptions.contains(selectedOption)){
+                    selectedOptions.remove(selectedOption); // uncheck item
+                }else {
+                    selectedOptions.add(selectedOption);
+                }
+            }
+        });
 
+        btnShowAnsTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!selectedOptions.isEmpty()){
+                    showSelectedItems();
+                }else {
+                    util.displayToast("Please select your answer");
+                }
+            }
+        });
+
+    }
+
+    private void showSelectedItems(){
+        String items = "";
+        for(String item:selectedOptions){
+            items = items + "- " + item + "\n";
+        }
+
+        util.displayToast(items);
     }
 
     @Override
