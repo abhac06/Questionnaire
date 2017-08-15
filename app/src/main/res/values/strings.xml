@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Questionnaire</string>
+    <string name="qstn_one">Please select your gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="unspecified">Unspecified</string>
 </resources>

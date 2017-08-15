@@ -43,10 +43,10 @@ public class QstnTwoActivity extends AppCompatActivity {
         switch (id){
             case android.R.id.home:
                 startActivity(new Intent(this, QstnOneActivity.class));
-                return true;
+                break;
             case R.id.action_next:
                 startActivity(new Intent(this, UserSummaryActivity.class));
-                return true;
+                break;
         }
 
         return super.onOptionsItemSelected(item);
