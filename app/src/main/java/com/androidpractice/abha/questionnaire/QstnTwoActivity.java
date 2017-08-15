@@ -1,7 +1,6 @@
 package com.androidpractice.abha.questionnaire;
 
 import android.content.Intent;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,21 +9,21 @@ import android.view.MenuItem;
 
 import com.androidpractice.abha.questionnaire.helper.Util;
 
-public class QstnOneActivity extends AppCompatActivity {
+public class QstnTwoActivity extends AppCompatActivity {
 
-    private Toolbar toolbarQstnOne;
+    private Toolbar toolbarQstnTwo;
     private Util util;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qstn_one);
+        setContentView(R.layout.activity_qstn_two);
 
         util = new Util(this);
 
-        toolbarQstnOne = (Toolbar) findViewById(R.id.toolbarQstnOne);
-        setSupportActionBar(toolbarQstnOne);
+        toolbarQstnTwo = (Toolbar) findViewById(R.id.toolbarQstnTwo);
 
+        setSupportActionBar(toolbarQstnTwo);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -43,15 +42,13 @@ public class QstnOneActivity extends AppCompatActivity {
 
         switch (id){
             case android.R.id.home:
-//                util.displayToast(item.getTitle().toString());
-                startActivity(new Intent(this, MainActivity.class));
-//                NavUtils.navigateUpFromSameTask(this);
+                startActivity(new Intent(this, QstnOneActivity.class));
                 return true;
             case R.id.action_next:
-                util.displayToast(item.getTitle().toString());
-                startActivity(new Intent(this, QstnTwoActivity.class));
+                startActivity(new Intent(this, UserSummaryActivity.class));
                 return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

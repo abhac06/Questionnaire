@@ -16,9 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QstnOneActivity"
-            android:theme="@style/MyToolbarTheme">
-        </activity>
+        <activity
+            android:name=".QstnOneActivity"
+            android:theme="@style/MyToolbarTheme" />
+        <activity
+            android:name=".QstnTwoActivity"
+            android:theme="@style/MyToolbarTheme" />
+        <activity android:name=".UserSummaryActivity"></activity>
     </application>
 
 </manifest>
