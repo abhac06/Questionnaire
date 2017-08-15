@@ -11,4 +11,33 @@
         android:id="@+id/toolbarQstnTwo"
         layout="@layout/app_bar" />
 
+    <TextView
+        android:id="@+id/tvQstnTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbarQstnTwo"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/qstn_two" />
+
+    <ListView
+        android:id="@+id/lvAnsTwoOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvQstnTwo"
+        android:layout_below="@+id/tvQstnTwo"
+        android:layout_marginTop="25dp" />
+
+    <!--<CheckedTextView-->
+        <!--android:id="@+id/checkedTextView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignStart="@+id/tvQstnTwo"-->
+        <!--android:layout_below="@+id/tvQstnTwo"-->
+        <!--android:layout_marginTop="28dp"-->
+        <!--android:text="CheckedTextView"-->
+        <!--android:checked="true"-->
+        <!--android:checkMark="@mipmap/ic_launcher"/>-->
+
 </RelativeLayout>

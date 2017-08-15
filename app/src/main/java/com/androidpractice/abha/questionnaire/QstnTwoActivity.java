@@ -6,13 +6,23 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.androidpractice.abha.questionnaire.helper.Util;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class QstnTwoActivity extends AppCompatActivity {
 
     private Toolbar toolbarQstnTwo;
     private Util util;
+    private ListView lvAnsTwoOptions;
+    String[] ansTwoOptions = {"Red", "Green", "None of the above", "Other"};
+    boolean[] checkedOptions;
+    ArrayList<Integer> userOptions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +32,17 @@ public class QstnTwoActivity extends AppCompatActivity {
         util = new Util(this);
 
         toolbarQstnTwo = (Toolbar) findViewById(R.id.toolbarQstnTwo);
+        lvAnsTwoOptions = (ListView) findViewById(R.id.lvAnsTwoOptions);
 
         setSupportActionBar(toolbarQstnTwo);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        checkedOptions = new boolean[ansTwoOptions.length];
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ansTwoOptions);
+        lvAnsTwoOptions.setAdapter(adapter);
+
+
     }
 
     @Override
