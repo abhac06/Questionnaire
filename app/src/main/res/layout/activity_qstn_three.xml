@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.androidpractice.abha.questionnaire.QstnThreeActivity">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="18dp"
+        android:text="Select the colors that you like: " />
+
+    <CheckBox
+        android:id="@+id/cbRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="21dp"
+        android:text="Red" />
+
+    <CheckBox
+        android:id="@+id/cbGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Green"
+        android:layout_below="@+id/cbRed"
+        android:layout_alignStart="@+id/cbRed" />
+
+    <CheckBox
+        android:id="@+id/cbBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blue"
+        android:layout_below="@+id/cbGreen"
+        android:layout_alignStart="@+id/cbGreen" />
+
+    <CheckBox
+        android:id="@+id/cbNone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="None"
+        android:layout_below="@+id/cbBlue"
+        android:layout_alignStart="@+id/cbBlue" />
+
+    <CheckBox
+        android:id="@+id/cbOther"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other"
+        android:layout_below="@+id/cbNone"
+        android:layout_alignStart="@+id/cbNone" />
+
+    <Button
+        android:id="@+id/btnSelResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbOther"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Selection Result" />
+
+    <TextView
+        android:id="@+id/tvSelResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSelResult"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:text="TextView" />
+
+</RelativeLayout>

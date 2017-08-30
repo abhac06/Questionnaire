@@ -7,3 +7,7 @@
      shows that answer in a textview below the checkboxes.
 4. Save both the questions and answers in SQLite
 5. On the next screen display the questions and their corresponding answers as fetched from SQLite
+
+***Else use Realm instead of SQLite
+1. Create model class for data
+2. Use this to store and retrieve data

@@ -22,7 +22,8 @@
         <activity
             android:name=".QstnTwoActivity"
             android:theme="@style/MyToolbarTheme" />
-        <activity android:name=".UserSummaryActivity"></activity>
+        <activity android:name=".UserSummaryActivity" />
+        <activity android:name=".QstnThreeActivity"></activity>
     </application>
 
 </manifest>
