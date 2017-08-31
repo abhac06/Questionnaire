@@ -1,6 +1,8 @@
 package com.androidpractice.abha.questionnaire;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.IdRes;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -43,18 +45,41 @@ public class QstnOneActivity extends AppCompatActivity {
                 switch (checkedId){
                     case R.id.rbMale:
                         util.displayToast(getString(R.string.male));
+                        save(checkedId);
                         break;
                     case R.id.rbFemale:
                         util.displayToast(getString(R.string.female));
+                        save(checkedId);
                         break;
                     case R.id.rbUnspecified:
                         util.displayToast(getString(R.string.unspecified));
+                        save(checkedId);
                         break;
                     default:
                         break;
                 }
             }
         });
+    }
+
+    // saving the state of checked radio button
+    private void save(int radioid) {
+        SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("check", radioid);
+        editor.apply();
+    }
+
+    // restoring the state of checked radio button
+    private void load() {
+        SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+
+        int radioId=sharedPreferences.getInt("check", 0);
+        if(radioId>0){
+            RadioButton rbtn=(RadioButton)rgGender.findViewById(radioId);
+            rbtn.setChecked(true);
+        }
+
     }
 
     @Override
@@ -81,5 +106,17 @@ public class QstnOneActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        load();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        load();
     }
 }
